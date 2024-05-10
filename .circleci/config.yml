@@ -4,7 +4,7 @@ jobs:
     docker:
       # specify the version you desire here
 #      - image: circleci/openjdk11-jdk-node
-      - image: cimg/openjdk:11.0
+      - image: cimg/openjdk:17.0
 
     working_directory: ~/repo
 
