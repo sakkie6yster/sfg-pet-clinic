@@ -1,31 +1,53 @@
 version: 2.1
+executors:
+  default_image:
+    docker:
+      - image: cimg/base:current
 jobs:
   build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/openjdk11-jdk-node
-
-    working_directory: ~/repo
-
     environment:
-      # Customize the JVM maximum heap limit
       MAVEN_OPTS: -Xmx3200m
-
+    executor: default_image
     steps:
       - checkout
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "pom.xml" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      - run: mvn dependency:go-offline
-
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
-
-        # run tests!
-      - run: mvn clean install spring-boot:repackage
-      - run: mvn install
+      - run:
+          command: |
+            mvn dependency:go-offline
+            mvn clean install spring-boot:repackage
+            mvn install
+workflows:
+  main:
+    jobs:
+      - build
+      -
+#version: 2.1
+#jobs:
+#  build:
+#    docker:
+#      # specify the version you desire here
+#      - image: circleci/openjdk11-jdk-node
+#
+#    working_directory: ~/repo
+#
+#    environment:
+#      # Customize the JVM maximum heap limit
+#      MAVEN_OPTS: -Xmx3200m
+#
+#    steps:
+#      - checkout
+#      # Download and cache dependencies
+#      - restore_cache:
+#          keys:
+#            - v1-dependencies-{{ checksum "pom.xml" }}
+#            # fallback to using the latest cache if no exact match is found
+#            - v1-dependencies-
+#      - run: mvn dependency:go-offline
+#
+#      - save_cache:
+#          paths:
+#            - ~/.m2
+#          key: v1-dependencies-{{ checksum "pom.xml" }}
+#
+#        # run tests!
+#      - run: mvn clean install spring-boot:repackage
+#      - run: mvn install
