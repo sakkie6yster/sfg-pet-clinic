@@ -58,5 +58,4 @@ public class OwnerSDJpaService implements OwnerService {
         ownerRepository.deleteById(aLong);
     }
 
-
 }
