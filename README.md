@@ -1,6 +1,6 @@
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/sakkie6yster/sfg-pet-clinic/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/sakkie6yster/sfg-pet-clinic/tree/main)
-
 # Spring Framework Guru Pet Clinic
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/sakkie6yster/sfg-pet-clinic/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/sakkie6yster/sfg-pet-clinic/tree/main)
 
 This repo is for my online course called [Spring Framework 5: Beginner to Guru](https://www.udemy.com/spring-framework-5-beginner-to-guru/?couponCode=GITHUB_SFGPETCLINIC).
 
