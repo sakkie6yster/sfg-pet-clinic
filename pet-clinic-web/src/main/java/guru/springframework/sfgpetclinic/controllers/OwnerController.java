@@ -91,7 +91,7 @@ public class OwnerController {
 
     @GetMapping("/{ownerId}/edit")
     public String initUpdateOwnerForm(@PathVariable Long ownerId, Model model) {
-        model.addAttribute(ownerService.findById(ownerId));
+        model.addAttribute("owner", ownerService.findById(ownerId));
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
 
@@ -105,6 +105,7 @@ public class OwnerController {
             return "redirect:/owners/" + savedOwner.getId();
         }
     }
+
 
 
 }
