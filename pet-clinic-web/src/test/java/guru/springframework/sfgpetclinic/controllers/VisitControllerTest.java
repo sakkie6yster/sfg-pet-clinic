@@ -97,7 +97,7 @@ class VisitControllerTest {
                         .param("description", YET_ANOTHER_VISIT_DESCRIPTION))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name(REDIRECT_OWNERS_1));
-                //.andExpect(model().attributeExists("visit"))
-        ;
+                //.andExpect(model().attributeExists("visit"));
+
     }
 }
